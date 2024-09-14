@@ -1,4 +1,6 @@
-const playButton = document.getElementsByClassName("play");
+const playButton = document.querySelector(".play");
+
+playButton.addEventListener("click", gameBoard());
 
 
 
@@ -8,20 +10,27 @@ console.log(playButton);
 
 function gameBoard(event) {
 
-    let boardGrid;
+    //MAKE THE GAME IN THE CONSOLE
 
-    for(i = 0; i < 3; i++){
-        let boardGridRow = document.createElement("div");
-        
-        for(j = 0; j < 3; j++){
-            //make column
-        }
-    }
     //finish making the board and incorporate a player function
 }
 
+
 function gamePlayers(game) {
-
-
-
+    
+    
+    
 }
+
+// let boardGrid = document.createElement("div");
+// boardGrid.classList.add("parent-grid");
+
+// for(i = 0; i < 3; i++){
+//     let boardGridRow = document.createElement("div");
+
+//     boardGrid.appendChild(boardGridRow);
+    
+//     for(j = 0; j < 3; j++){
+//         let boardGridColumn = document.createElement("div");
+//     }
+// }
