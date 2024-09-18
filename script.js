@@ -1,25 +1,38 @@
 const playButton = document.querySelector(".play");
 
-playButton.addEventListener("click", gameBoard());
-
-
+// playButton.addEventListener("click", gameBoard());
 
 console.log(playButton);
 //Make the players function
 //Make game board function
 
-function gameBoard(event) {
+function createGameBoard() {
 
     //MAKE THE GAME IN THE CONSOLE
-
+    //use `` for whitespace
     //finish making the board and incorporate a player function
+    return [
+        null, null, null,
+        null, null, null,
+        null, null, null
+    ]
+    // Make sure to put this code above the return cutie
+    // Or it no worky
+        let player = prompt("Enter player name", "Mario");
+         //set condition to not acccept null
+
+
 }
 
+createGameBoard();
 
-function gamePlayers(game) {
-    
-    
-    
+
+function createPlayer(name, piece, score) {
+    return {
+        name,
+        piece,
+        score
+    }
 }
 
 // let boardGrid = document.createElement("div");
