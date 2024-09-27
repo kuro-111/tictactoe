@@ -14,21 +14,38 @@ function createGameBoard() {
   // Make sure to put this code above the return cutie
   // Or it no worky
   let name = prompt("Enter player name", "Mario");
-  let piece = prompt("x or O");
-  let score = 0;
 
-  while (name == null) {
-      name = prompt("Enter player name", "Mario");
+  if (name == null){
+    return {};
   }
 
-  while (piece != "X" && piece != "O") {
-     piece = prompt("X or O");
+  while (name == '') {
+    name = prompt("Enter player name", "Mario");
+  }
+
+  let piece = prompt("x or O");
+
+  if (piece == null){
+    return {};
   }
   
+  while (piece != "X" && piece != "O") {
+    piece = prompt("X or O");
+  }
+  
+  let score = 0;
 
-  createPlayer(name, piece, score);
+  let player1 = createPlayer(name, piece, score);
 
-  //set condition to not acccept null
+  console.log(player1);
+
+  //gameStart(player1);
+
+  //Make game logic
+  function gameStart(player){
+    console.log("here");
+  }
+
 }
 
 createGameBoard();
@@ -42,6 +59,8 @@ function createPlayer(name, piece, score) {
     score,
   };
 }
+
+
 
 // let boardGrid = document.createElement("div");
 // boardGrid.classList.add("parent-grid");
