@@ -6,13 +6,45 @@ console.log(playButton);
 //Make the players function
 //Make game board function
 
+
+function createPlayer(name, piece) {
+
+
+  return {
+    name: name,
+    piece: piece,
+    score: 0
+  };
+}
+
+
+function checkForWin(){
+  const win = "no";
+
+
+}
+
 function createGameBoard() {
   //MAKE THE GAME IN THE CONSOLE
   //use `` for whitespace
-  //finish making the board and incorporate a player function
-  let gameBoard = [null, null, null, null, null, null, null, null, null];
+
+return{
+  gameBoard: [null, null, null, null, null, null, null, null, null],
+  cuurentPlayer: "Player One",
+  gameState: "playing | draw | win"
+}  
   // Make sure to put this code above the return cutie
   // Or it no worky
+  //gameStart(player1);
+
+}
+
+function winCheck(){
+
+  
+}
+
+function gameStart(player){
   let name = prompt("Enter player name", "Mario");
 
   if (name == null){
@@ -39,26 +71,12 @@ function createGameBoard() {
 
   console.log(player1);
 
-  //gameStart(player1);
-
-  //Make game logic
-  function gameStart(player){
-    console.log("here");
-  }
-
+  console.log("here");
 }
 
 createGameBoard();
 
-function createPlayer(name, piece, score) {
 
-
-  return {
-    name,
-    piece,
-    score,
-  };
-}
 
 
 
