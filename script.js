@@ -1,6 +1,6 @@
 const playButton = document.querySelector(".play");
 
-// playButton.addEventListener("click", gameBoard());
+playButton.addEventListener("click", gameStart());
 
 console.log(playButton);
 //Make the players function
@@ -13,7 +13,7 @@ function createPlayer(name, piece) {
   return {
     name: name,
     piece: piece,
-    score: 0
+    score: 0,
   };
 }
 
@@ -40,6 +40,43 @@ return{
 }
 
 function winCheck(){
+  const win = null;
+
+  // 3 in a row horizontally
+
+
+  win =
+    (gameBoard.gameBoard[0] === currentPlayer.token &&
+      gameBoard.gameBoard[1] === currentPlayer.token &&
+      gameBoard.gameBoard[2] === currentPlayer.token) ||
+    (gameBoard.gameBoard[3] === currentPlayer.token &&
+      gameBoard.gameBoard[4] === currentPlayer.token &&
+      gameBoard.gameBoard[5] === currentPlayer.token) ||
+    (gameBoard.gameBoard[6] === currentPlayer.token &&
+      gameBoard.gameBoard[7] === currentPlayer.token &&
+      gameBoard.gameBoard[8] === currentPlayer.token);
+
+  // 3 in a row vertically
+  win =
+  (gameBoard.gameBoard[0] === currentPlayer.token &&
+    gameBoard.gameBoard[3] === currentPlayer.token &&
+    gameBoard.gameBoard[6] === currentPlayer.token) ||
+  (gameBoard.gameBoard[1] === currentPlayer.token &&
+    gameBoard.gameBoard[4] === currentPlayer.token &&
+    gameBoard.gameBoard[7] === currentPlayer.token) ||
+  (gameBoard.gameBoard[2] === currentPlayer.token &&
+    gameBoard.gameBoard[5] === currentPlayer.token &&
+    gameBoard.gameBoard[8] === currentPlayer.token);
+
+   // 3 in a row diagonally
+   win =
+   (gameBoard.gameBoard[0] === currentPlayer.token &&
+     gameBoard.gameBoard[4] === currentPlayer.token &&
+     gameBoard.gameBoard[8] === currentPlayer.token) ||
+   (gameBoard.gameBoard[2] === currentPlayer.token &&
+     gameBoard.gameBoard[4] === currentPlayer.token &&
+     gameBoard.gameBoard[6] === currentPlayer.token);
+
 
   
 }
