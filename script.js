@@ -43,10 +43,7 @@ function winCheck(){
   const win = null;
 
   // 3 in a row horizontally
-
-
-  win =
-    (gameBoard.gameBoard[0] === currentPlayer.token &&
+  if ((gameBoard.gameBoard[0] === currentPlayer.token &&
       gameBoard.gameBoard[1] === currentPlayer.token &&
       gameBoard.gameBoard[2] === currentPlayer.token) ||
     (gameBoard.gameBoard[3] === currentPlayer.token &&
@@ -54,10 +51,12 @@ function winCheck(){
       gameBoard.gameBoard[5] === currentPlayer.token) ||
     (gameBoard.gameBoard[6] === currentPlayer.token &&
       gameBoard.gameBoard[7] === currentPlayer.token &&
-      gameBoard.gameBoard[8] === currentPlayer.token);
-
-  // 3 in a row vertically
-  win =
+      gameBoard.gameBoard[8] === currentPlayer.token)
+) {
+    win = "yes";
+}
+      // 3 in a row vertically
+  else if (
   (gameBoard.gameBoard[0] === currentPlayer.token &&
     gameBoard.gameBoard[3] === currentPlayer.token &&
     gameBoard.gameBoard[6] === currentPlayer.token) ||
@@ -66,19 +65,44 @@ function winCheck(){
     gameBoard.gameBoard[7] === currentPlayer.token) ||
   (gameBoard.gameBoard[2] === currentPlayer.token &&
     gameBoard.gameBoard[5] === currentPlayer.token &&
-    gameBoard.gameBoard[8] === currentPlayer.token);
-
+    gameBoard.gameBoard[8] === currentPlayer.token)
+) {
+  win = "yes";
+}
    // 3 in a row diagonally
-   win =
-   (gameBoard.gameBoard[0] === currentPlayer.token &&
+  else if (
+  (gameBoard.gameBoard[0] === currentPlayer.token &&
      gameBoard.gameBoard[4] === currentPlayer.token &&
      gameBoard.gameBoard[8] === currentPlayer.token) ||
-   (gameBoard.gameBoard[2] === currentPlayer.token &&
+  (gameBoard.gameBoard[2] === currentPlayer.token &&
      gameBoard.gameBoard[4] === currentPlayer.token &&
-     gameBoard.gameBoard[6] === currentPlayer.token);
+     gameBoard.gameBoard[6] === currentPlayer.token)
+) {
+      win = "yes";
+     }
 
+     console.log(
+      `\n
+      ${gameBoard.gameBoard[0]} | ${gameBoard.gameBoard[1]} | ${gameBoard.gameBoard[2]}
+      ---------
+      ${gameBoard.gameBoard[3]} | ${gameBoard.gameBoard[4]} | ${gameBoard.gameBoard[5]}
+      ---------
+      ${gameBoard.gameBoard[6]} | ${gameBoard.gameBoard[7]} | ${gameBoard.gameBoard[8]}\n
+      `
+        );
+      
 
-  
+        if (win) {
+          // Update current player score
+          currentPlayer.score += 1;
+      
+          // Display winner
+          console.log(`${currentPlayer.name} wins!`);
+      
+          // Reset the game
+          gameBoard = createGameBoard();
+        }
+ 
 }
 
 function gameStart(player){
