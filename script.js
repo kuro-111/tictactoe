@@ -99,10 +99,35 @@ function winCheck(){
           // Display winner
           console.log(`${currentPlayer.name} wins!`);
       
-          // Reset the game
+          // Reset the game 
           gameBoard = createGameBoard();
         }
  
+}
+
+function drawCheck(){
+  const draw  = gameBoard.gameBoard.every((square) => square !==null
+  );
+
+  if (draw) {
+    // Display draw
+    console.log('Draw!');
+
+    gameBoard = createGameBoard();
+  }
+
+}
+
+function gameLogic(){
+  const players = setupPlayers();
+
+  const player1 = players[0]; 
+  const player2 = players[1];
+
+  const currentPlayer = Math.floor(Math.random() * 2) === 0 ? player1 : player2;
+
+  const gameBoard = createGameBoard();   
+
 }
 
 function gameStart(player){
