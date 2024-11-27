@@ -28,9 +28,9 @@ function createGameBoard() {
   //MAKE THE GAME IN THE CONSOLE
   //use `` for whitespace
 
-return{
+return {
   gameBoard: [null, null, null, null, null, null, null, null, null],
-  cuurentPlayer: "Player One",
+  currentPlayer: "Player One",
   gameState: "playing | draw | win"
 }  
   // Make sure to put this code above the return cutie
@@ -126,41 +126,47 @@ function gameLogic(){
 
   const currentPlayer = Math.floor(Math.random() * 2) === 0 ? player1 : player2;
 
-  const gameBoard = createGameBoard();   
+  const gameBoard = createGameBoard(); 
 
 }
 
 function gameStart(player){
-  let name = prompt("Enter player name", "Mario");
+  let name1 = prompt("Enter player 1 name", "Mario");
 
-  if (name == null){
+  if (name1 == null){
     return {};
   }
 
-  while (name == '') {
-    name = prompt("Enter player name", "Mario");
+  while (name1 == '') {
+    name1 = prompt("Enter player 1 name", "Mario");
   }
 
-  let piece = prompt("x or O");
+  let piece1 = prompt("x or O");
 
-  if (piece == null){
+  if (piece1 == null){
     return {};
   }
   
-  while (piece != "X" && piece != "O") {
-    piece = prompt("X or O");
+  while (piece1 != "X" && piece1 != "O") {
+    piece1 = prompt("X or O");
   }
   
-  let score = 0;
+  let score1 = 0;
 
-  let player1 = createPlayer(name, piece, score);
+  let player1 = createPlayer(name1, piece1, score1);
 
   console.log(player1);
 
-  console.log("here");
-}
+  let player2 = createPlayer(name, piece, score);
 
-createGameBoard();
+  console.log(player2);
+
+  console.log("here");
+  
+  const board = createGameBoard();
+
+  console.log(board);
+}
 
 
 
