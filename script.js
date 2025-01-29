@@ -6,44 +6,38 @@ console.log(playButton);
 //Make the players function
 //Make game board function
 
-
-function createPlayer(name, piece) {
-
-
+function createPlayer(name, piece, score) {
   return {
     name: name,
     piece: piece,
-    score: 0,
+    score: score,
   };
 }
 
-
-function checkForWin(){
+function checkForWin() {
   const win = "no";
-
-
 }
 
 function createGameBoard() {
   //MAKE THE GAME IN THE CONSOLE
   //use `` for whitespace
 
-return {
-  gameBoard: [null, null, null, null, null, null, null, null, null],
-  currentPlayer: "Player One",
-  gameState: "playing | draw | win"
-}  
+  return {
+    gameBoard: [null, null, null, null, null, null, null, null, null],
+    currentPlayer: "Player One",
+    gameState: "playing | draw | win",
+  };
   // Make sure to put this code above the return cutie
   // Or it no worky
   //gameStart(player1);
-
 }
 
-function winCheck(){
+function winCheck() {
   const win = null;
 
   // 3 in a row horizontally
-  if ((gameBoard.gameBoard[0] === currentPlayer.token &&
+  if (
+    (gameBoard.gameBoard[0] === currentPlayer.token &&
       gameBoard.gameBoard[1] === currentPlayer.token &&
       gameBoard.gameBoard[2] === currentPlayer.token) ||
     (gameBoard.gameBoard[3] === currentPlayer.token &&
@@ -52,125 +46,138 @@ function winCheck(){
     (gameBoard.gameBoard[6] === currentPlayer.token &&
       gameBoard.gameBoard[7] === currentPlayer.token &&
       gameBoard.gameBoard[8] === currentPlayer.token)
-) {
+  ) {
     win = "yes";
-}
-      // 3 in a row vertically
+  }
+  // 3 in a row vertically
   else if (
-  (gameBoard.gameBoard[0] === currentPlayer.token &&
-    gameBoard.gameBoard[3] === currentPlayer.token &&
-    gameBoard.gameBoard[6] === currentPlayer.token) ||
-  (gameBoard.gameBoard[1] === currentPlayer.token &&
-    gameBoard.gameBoard[4] === currentPlayer.token &&
-    gameBoard.gameBoard[7] === currentPlayer.token) ||
-  (gameBoard.gameBoard[2] === currentPlayer.token &&
-    gameBoard.gameBoard[5] === currentPlayer.token &&
-    gameBoard.gameBoard[8] === currentPlayer.token)
-) {
-  win = "yes";
-}
-   // 3 in a row diagonally
+    (gameBoard.gameBoard[0] === currentPlayer.token &&
+      gameBoard.gameBoard[3] === currentPlayer.token &&
+      gameBoard.gameBoard[6] === currentPlayer.token) ||
+    (gameBoard.gameBoard[1] === currentPlayer.token &&
+      gameBoard.gameBoard[4] === currentPlayer.token &&
+      gameBoard.gameBoard[7] === currentPlayer.token) ||
+    (gameBoard.gameBoard[2] === currentPlayer.token &&
+      gameBoard.gameBoard[5] === currentPlayer.token &&
+      gameBoard.gameBoard[8] === currentPlayer.token)
+  ) {
+    win = "yes";
+  }
+  // 3 in a row diagonally
   else if (
-  (gameBoard.gameBoard[0] === currentPlayer.token &&
-     gameBoard.gameBoard[4] === currentPlayer.token &&
-     gameBoard.gameBoard[8] === currentPlayer.token) ||
-  (gameBoard.gameBoard[2] === currentPlayer.token &&
-     gameBoard.gameBoard[4] === currentPlayer.token &&
-     gameBoard.gameBoard[6] === currentPlayer.token)
-) {
-      win = "yes";
-     }
+    (gameBoard.gameBoard[0] === currentPlayer.token &&
+      gameBoard.gameBoard[4] === currentPlayer.token &&
+      gameBoard.gameBoard[8] === currentPlayer.token) ||
+    (gameBoard.gameBoard[2] === currentPlayer.token &&
+      gameBoard.gameBoard[4] === currentPlayer.token &&
+      gameBoard.gameBoard[6] === currentPlayer.token)
+  ) {
+    win = "yes";
+  }
 
-     console.log(
-      `\n
+  console.log(
+    `\n
       ${gameBoard.gameBoard[0]} | ${gameBoard.gameBoard[1]} | ${gameBoard.gameBoard[2]}
       ---------
       ${gameBoard.gameBoard[3]} | ${gameBoard.gameBoard[4]} | ${gameBoard.gameBoard[5]}
       ---------
       ${gameBoard.gameBoard[6]} | ${gameBoard.gameBoard[7]} | ${gameBoard.gameBoard[8]}\n
       `
-        );
-      
+  );
 
-        if (win) {
-          // Update current player score
-          currentPlayer.score += 1;
-      
-          // Display winner
-          console.log(`${currentPlayer.name} wins!`);
-      
-          // Reset the game 
-          gameBoard = createGameBoard();
-        }
- 
+  if (win) {
+    // Update current player score
+    currentPlayer.score += 1;
+
+    // Display winner
+    console.log(`${currentPlayer.name} wins!`);
+
+    // Reset the game
+    gameBoard = createGameBoard();
+  }
 }
 
-function drawCheck(){
-  const draw  = gameBoard.gameBoard.every((square) => square !==null
-  );
+function drawCheck() {
+  const draw = gameBoard.gameBoard.every((square) => square !== null);
 
   if (draw) {
     // Display draw
-    console.log('Draw!');
+    console.log("Draw!");
 
     gameBoard = createGameBoard();
   }
-
 }
 
-function gameLogic(){
-  const players = setupPlayers();
+function gameLogic() {
+  // Pass in paramaters needed for game loop (player1, player2, gameBoard)
 
-  const player1 = players[0]; 
-  const player2 = players[1];
-
+  // Who goes first
   const currentPlayer = Math.floor(Math.random() * 2) === 0 ? player1 : player2;
 
-  const gameBoard = createGameBoard(); 
-
+  // Make game loop
+    //  Do player turn
+    
 }
 
-function gameStart(player){
+function gameStart(player) {
   let name1 = prompt("Enter player 1 name", "Mario");
 
-  if (name1 == null){
+  if (name1 == null) {
     return {};
   }
 
-  while (name1 == '') {
+  while (name1 == "") {
     name1 = prompt("Enter player 1 name", "Mario");
   }
 
-  let piece1 = prompt("x or O");
+  let piece1 = prompt("X or O");
 
-  if (piece1 == null){
+  if (piece1 == null) {
     return {};
   }
-  
+
   while (piece1 != "X" && piece1 != "O") {
     piece1 = prompt("X or O");
   }
-  
+
   let score1 = 0;
 
   let player1 = createPlayer(name1, piece1, score1);
 
   console.log(player1);
 
-  let player2 = createPlayer(name, piece, score);
+  let name2 = prompt("Enter player 2 name", "Mario");
+
+  if (name2 == null) {
+    return {};
+  }
+
+  while (name2 == "") {
+    name2 = prompt("Enter player 2 name", "Mario");
+  }
+
+  let piece2 = prompt("X or O");
+
+  if (piece2 == null) {
+    return {};
+  }
+
+  while (piece2 != "X" && piece2 != "O") {
+    piece2 = prompt("X or O");
+  }
+
+  let score2 = 0;
+
+  let player2 = createPlayer(name2, piece2, score2);
 
   console.log(player2);
 
   console.log("here");
-  
+
   const board = createGameBoard();
 
   console.log(board);
 }
-
-
-
-
 
 // let boardGrid = document.createElement("div");
 // boardGrid.classList.add("parent-grid");
