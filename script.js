@@ -121,22 +121,21 @@ function gameLogic(player1, player2, gameBoard) {
       break;
   }}
 
-  const playerTurn = function (currentPlayer){
-    const square = prompt (`${currentPlayer.name}, choose a square: (0-8)`);
-
-    gameBoard.gameBoard[square] =  currentPlayer.token;
-
-    
-
-  }
   // Make game loop
     //  Do player turn
     
 
-
 }
 
+//Finish playerTurn and test 
+const playerTurn = function (currentPlayer){
+  const square = prompt (`${currentPlayer.name}, choose a square: (0-8)`);
 
+  gameBoard.gameBoard[square] =  currentPlayer.token;
+
+  
+
+}
 
 function gameStart(player) {
   let name1 = prompt("Enter player 1 name", "Mario");
