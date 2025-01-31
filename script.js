@@ -108,16 +108,35 @@ function drawCheck() {
   }
 }
 
-function gameLogic() {
+function gameLogic(player1, player2, gameBoard) {
   // Pass in paramaters needed for game loop (player1, player2, gameBoard)
 
   // Who goes first
   const currentPlayer = Math.floor(Math.random() * 2) === 0 ? player1 : player2;
 
+  for (let i = 0; i < 5; i++) {
+    const hasWon = playerTurn(currentPlayer);
+    if (hasWon) {
+      startGame();
+      break;
+  }}
+
+  const playerTurn = function (currentPlayer){
+    const square = prompt (`${currentPlayer.name}, choose a square: (0-8)`);
+
+    gameBoard.gameBoard[square] =  currentPlayer.token;
+
+    
+
+  }
   // Make game loop
     //  Do player turn
     
+
+
 }
+
+
 
 function gameStart(player) {
   let name1 = prompt("Enter player 1 name", "Mario");
