@@ -127,13 +127,16 @@ function gameLogic(player1, player2, gameBoard) {
 
 }
 
+
+
 //Finish playerTurn and test 
+
 const playerTurn = function (currentPlayer){
   const square = prompt (`${currentPlayer.name}, choose a square: (0-8)`);
 
   gameBoard.gameBoard[square] =  currentPlayer.token;
 
-  
+  currentPlayer = currentPlayer === player1 ? player2 : player1;
 
 }
 
