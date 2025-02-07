@@ -138,6 +138,8 @@ const playerTurn = function (currentPlayer){
 
   currentPlayer = currentPlayer === player1 ? player2 : player1;
 
+  //for test push only comment
+
 }
 
 function gameStart(player) {
