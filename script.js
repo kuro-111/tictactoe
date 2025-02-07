@@ -114,10 +114,10 @@ function gameLogic(player1, player2, gameBoard) {
   // Who goes first
   const currentPlayer = Math.floor(Math.random() * 2) === 0 ? player1 : player2;
 
-  for (let i = 0; i < 5; i++) {
+  for (let i = 0; i < 9; i++) {
     const hasWon = playerTurn(currentPlayer);
     if (hasWon) {
-      startGame();
+      gameStart();
       break;
   }}
 
