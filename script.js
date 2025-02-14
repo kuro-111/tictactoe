@@ -1,10 +1,10 @@
 const playButton = document.querySelector(".play");
 
-playButton.addEventListener("click", gameStart());
+playButton.addEventListener("click", gameStart);
 
 console.log(playButton);
 //Make the players function
-//Make game board function
+//Make game board functio
 
 function createPlayer(name, piece, score) {
   return {
@@ -108,41 +108,41 @@ function drawCheck() {
   }
 }
 
+// FIX GAME LOOP
 function gameLogic(player1, player2, gameBoard) {
   // Pass in paramaters needed for game loop (player1, player2, gameBoard)
 
   // Who goes first
-  const currentPlayer = Math.floor(Math.random() * 2) === 0 ? player1 : player2;
+   currentPlayer = Math.floor(Math.random() * 2) === 0 ? player1 : player2;
 
   for (let i = 0; i < 9; i++) {
-    const hasWon = playerTurn(currentPlayer);
+    const hasWon = playerTurn(currentPlayer, player1, player2, gameBoard);
     if (hasWon) {
       gameStart();
       break;
   }}
 
-  // Make game loop
-    //  Do player turn
-    
+  //  Do player turn
+  
 
 }
 
 
 
-//Finish playerTurn and test 
 
-const playerTurn = function (currentPlayer){
+let playerTurn = function (currentPlayer, player1, player2, gameBoard){
   const square = prompt (`${currentPlayer.name}, choose a square: (0-8)`);
-
+  
   gameBoard.gameBoard[square] =  currentPlayer.token;
-
+  
   currentPlayer = currentPlayer === player1 ? player2 : player1;
-
-  //for test push only comment
-
+  //RETURN PLAYER INPUT FOR GAMEBOARD
+  //RETURN UPDATED GAMEBOARD
+  //RETURN UPDATED CURRENTPLAYER  
+  //Finish playerTurn and test 
 }
 
-function gameStart(player) {
+function gameStart(e) {
   let name1 = prompt("Enter player 1 name", "Mario");
 
   if (name1 == null) {
@@ -193,11 +193,24 @@ function gameStart(player) {
 
   let player2 = createPlayer(name2, piece2, score2);
 
+  let currentPlayer;
   console.log(player2);
 
   console.log("here");
 
   const board = createGameBoard();
+
+  /*
+    board = {
+      gameBoard: [null,]
+    }
+  */
+
+  let game = gameLogic(player1, player2, board);
+
+  console.log();
+
+  console.log(game);
 
   console.log(board);
 }
