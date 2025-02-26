@@ -116,12 +116,14 @@ function gameLogic(player1, player2, gameBoard) {
    currentPlayer = Math.floor(Math.random() * 2) === 0 ? player1 : player2;
 
   for (let i = 0; i < 9; i++) {
-    const hasWon = playerTurn(currentPlayer, player1, player2, gameBoard);
+    let hasWon = playerTurn(currentPlayer, player1, player2, gameBoard);
+    //make sure player alternates each loop
     if (hasWon) {
-      gameStart();
+      return gameStart();
       break;
-  }}
-
+    }
+  }
+ 
   //  Do player turn
   
 
