@@ -113,15 +113,21 @@ function gameLogic(player1, player2, gameBoard) {
   // Pass in paramaters needed for game loop (player1, player2, gameBoard)
 
   // Who goes first
-   currentPlayer = Math.floor(Math.random() * 2) === 0 ? player1 : player2;
+  let currentPlayer = Math.floor(Math.random() * 2) === 0 ? player1 : player2;
 
   for (let i = 0; i < 9; i++) {
+    // 1 - prompt current player
+    // 2 - update game board
+    // 3 - check if player won
+    // 4 - returning something to say that we won (true / false)
     let hasWon = playerTurn(currentPlayer, player1, player2, gameBoard);
+    
+    // 5 - if they won, restart
+   
+    // 6 - if they haven't won, swap players and keep goin
+    currentPlayer = currentPlayer === player1 ? player2 : player1;
+
     //make sure player alternates each loop
-    if (hasWon) {
-      return gameStart();
-      break;
-    }
   }
  
   //  Do player turn
@@ -135,9 +141,18 @@ function gameLogic(player1, player2, gameBoard) {
 let playerTurn = function (currentPlayer, player1, player2, gameBoard){
   const square = prompt (`${currentPlayer.name}, choose a square: (0-8)`);
   
-  gameBoard.gameBoard[square] =  currentPlayer.token;
+  if (gameBoard.gameBoard[square] !== null ) {
+    console.log("this spot is taken");
+    return;
+  };
+
+  gameBoard.gameBoard[square] = currentPlayer.token;
   
-  currentPlayer = currentPlayer === player1 ? player2 : player1;
+  if (hasWon) {
+    return gameStart();
+
+  }
+
   //RETURN PLAYER INPUT FOR GAMEBOARD
   //RETURN UPDATED GAMEBOARD
   //RETURN UPDATED CURRENTPLAYER  
