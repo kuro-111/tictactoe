@@ -123,6 +123,10 @@ function gameLogic(player1, player2, gameBoard) {
     let hasWon = playerTurn(currentPlayer, player1, player2, gameBoard);
     
     // 5 - if they won, restart
+    if (hasWon) {
+      return gameStart();
+    
+    }
    
     // 6 - if they haven't won, swap players and keep goin
     currentPlayer = currentPlayer === player1 ? player2 : player1;
@@ -133,12 +137,13 @@ function gameLogic(player1, player2, gameBoard) {
   //  Do player turn
   
 
+
 }
 
 
 
 
-let playerTurn = function (currentPlayer, player1, player2, gameBoard){
+let playerTurn = function (currentPlayer, player1, player2, gameBoard) {
   const square = prompt (`${currentPlayer.name}, choose a square: (0-8)`);
   
   if (gameBoard.gameBoard[square] !== null ) {
@@ -148,10 +153,7 @@ let playerTurn = function (currentPlayer, player1, player2, gameBoard){
 
   gameBoard.gameBoard[square] = currentPlayer.token;
   
-  if (hasWon) {
-    return gameStart();
-
-  }
+  //make logic for checking win condition and test
 
   //RETURN PLAYER INPUT FOR GAMEBOARD
   //RETURN UPDATED GAMEBOARD
