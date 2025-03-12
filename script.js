@@ -149,9 +149,14 @@ let playerTurn = function (currentPlayer, player1, player2, gameBoard) {
   if (gameBoard.gameBoard[square] !== null ) {
     console.log("this spot is taken");
     return;
-  };
+  }
+  
+  
+  
+  gameBoard.gameBoard[square] = currentPlayer.piece;
+  console.log(gameBoard.gameBoard);
+  console.log(currentPlayer);
 
-  gameBoard.gameBoard[square] = currentPlayer.token;
   
   //make logic for checking win condition and test
 
